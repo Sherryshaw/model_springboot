@@ -1,4 +1,4 @@
-package com.project.common;
+package com.project.util;
 
 
 // 这是一个数数学计算的class 缩略图生成的时候需要用到。
@@ -6,7 +6,7 @@ package com.project.common;
 import java.math.BigDecimal;
 import java.util.Random;
 
-public class Arith {
+public class MathUtil {
     //默认除法运算精度
     private static final int DEF_DIV_SCALE = 10;
 

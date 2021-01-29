@@ -10,6 +10,8 @@ import java.time.format.DateTimeFormatter;
 public class BaseController {
     @Resource
     protected DbContext dbContext;
+    @Resource
+    protected Auth auth;
     protected LocalDateTime NOW;
 
     protected LocalDate parseDate(String content) {

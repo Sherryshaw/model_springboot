@@ -28,8 +28,8 @@ public class ShiroConfig extends ShiroWebFilterConfiguration {
         //添加两个用户
         //joe.coder=password 角色 user
         //jill.coder=password 角色 admin
-        realm.setUserDefinitions("joe.coder=password,user\n" +
-                "jill.coder=password,admin");
+        realm.setUserDefinitions("1=1,user");
+        realm.setUserDefinitions("2=2,admin");
 
         //设置角色admin的权限是read,write
         //设置角色user的权限是read
@@ -48,10 +48,6 @@ public class ShiroConfig extends ShiroWebFilterConfiguration {
     @Bean
     public ShiroFilterChainDefinition shiroFilterChainDefinition() {
         DefaultShiroFilterChainDefinition chainDefinition = new DefaultShiroFilterChainDefinition();
-        chainDefinition.addPathDefinition("/login.html", "authc"); // need to accept POSTs from the login form
-        chainDefinition.addPathDefinition("/logout", "logout");
-        chainDefinition.addPathDefinition("/account-info", "perms[write]");
-        chainDefinition.addPathDefinition("/account-info1", "roles[admin]");
         return chainDefinition;
     }
 

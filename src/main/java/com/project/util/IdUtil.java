@@ -1,4 +1,4 @@
-package com.project.common;
+package com.project.util;
 
 import java.lang.management.ManagementFactory;
 import java.net.InetAddress;
@@ -9,7 +9,7 @@ import java.util.UUID;
 /**
  * 用于生产各种各样的ID
  */
-public class IdUtils {
+public class IdUtil {
 
     private static String middle = "";
 
