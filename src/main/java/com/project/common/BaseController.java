@@ -1,5 +1,6 @@
 package com.project.common;
 
+import com.project.service.IMailService;
 import org.apache.commons.lang3.StringUtils;
 
 import javax.annotation.Resource;
@@ -13,6 +14,9 @@ public class BaseController {
     @Resource
     protected Auth auth;
     protected LocalDateTime NOW;
+    @Resource
+    protected IMailService mailService;
+
 
     protected LocalDate parseDate(String content) {
         if (StringUtils.isBlank(content)) {

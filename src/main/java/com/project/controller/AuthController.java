@@ -36,4 +36,10 @@ public class AuthController extends BaseController {
         return ResultGenerator.genSuccessResult();
     }
 
+    @RequiresRoles("admin")
+    @GetMapping("/sendMail")
+    public Result sendMail(String to,String content,String title){
+        mailService.sendSimpleMail(to,title,content);
+        return ResultGenerator.genSuccessResult();
+    }
 }
