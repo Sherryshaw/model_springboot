@@ -1,6 +1,5 @@
 package com.project.common;
 
-import com.project.core.ResultGenerator;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.UnknownAccountException;
@@ -11,7 +10,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class Auth {
-    public String login(String id,String password){
+    public String login(String id, String password) {
         UsernamePasswordToken token = new UsernamePasswordToken(id, password);
         Subject subject = SecurityUtils.getSubject();
         try {

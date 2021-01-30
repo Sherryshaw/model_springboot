@@ -1,4 +1,4 @@
-package com.project.core;
+package com.project.common;
 
 /**
  * 响应码枚举，参考HTTP状态码的语义

@@ -1,4 +1,4 @@
-package com.project.core;
+package com.project.common;
 
 import com.alibaba.fastjson.JSON;
 
@@ -10,7 +10,7 @@ public class Result<T> {
     private String message;
     private T data;
 
-    public Result setCode(ResultCode resultCode) {
+    public Result<T> setCode(ResultCode resultCode) {
         this.code = resultCode.code();
         return this;
     }
@@ -23,7 +23,7 @@ public class Result<T> {
         return message;
     }
 
-    public Result setMessage(String message) {
+    public Result<T> setMessage(String message) {
         this.message = message;
         return this;
     }
@@ -32,10 +32,11 @@ public class Result<T> {
         return data;
     }
 
-    public Result setData(T data) {
+    public Result<T> setData(T data) {
         this.data = data;
         return this;
     }
+
 
     @Override
     public String toString() {

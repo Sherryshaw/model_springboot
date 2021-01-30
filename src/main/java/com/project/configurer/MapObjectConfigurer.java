@@ -1,13 +1,9 @@
 package com.project.configurer;
 
-import org.apache.commons.lang3.StringUtils;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.core.convert.converter.Converter;
 import org.springframework.format.Formatter;
 
-import java.text.ParseException;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Locale;
@@ -28,9 +24,9 @@ public class MapObjectConfigurer {
             }
 
             @Override
-            public LocalDateTime parse(String text, Locale locale) throws ParseException {
+            public LocalDateTime parse(String text, Locale locale) {
                 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-                return LocalDateTime.parse(text, DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+                return LocalDateTime.parse(text, formatter);
             }
         };
     }

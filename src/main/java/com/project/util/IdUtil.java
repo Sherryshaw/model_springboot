@@ -3,6 +3,7 @@ package com.project.util;
 import java.lang.management.ManagementFactory;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
+import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.util.UUID;
 
@@ -11,7 +12,7 @@ import java.util.UUID;
  */
 public class IdUtil {
 
-    private static String middle = "";
+    private static String middle;
 
     static {
         middle = MathUtils.makeUpNewData(Math.abs(NetworkUtils.getHostIP().hashCode()) + "", 4) +   //4位IP地址hash
@@ -103,7 +104,7 @@ public class IdUtil {
 
         public static String md5Hex(String str, boolean isUpper) {
             try {
-                return new String(encodeHex(MessageDigest.getInstance("MD5").digest(str.getBytes("UTF-8")), isUpper ? DIGITS_UPPER : DIGITS_LOWER));
+                return new String(encodeHex(MessageDigest.getInstance("MD5").digest(str.getBytes(StandardCharsets.UTF_8)), isUpper ? DIGITS_UPPER : DIGITS_LOWER));
             } catch (Exception e) {
                 throw new RuntimeException(e);
             }
@@ -178,8 +179,8 @@ public class IdUtil {
         /**
          * 生产一个随机的指定位数的字符串数字
          *
-         * @param length
-         * @return
+         * @param length 位数
+         * @return 返回数字
          */
         public static String randomDigitNumber(int length) {
             int start = Integer.parseInt(makeUpNewData("", length));//1000+8999=9999

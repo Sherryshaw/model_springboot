@@ -1,6 +1,7 @@
 app-info:
   name: 工程名字
   location: projectname
+  author: Tian Hao
   version: 1.0.0
   port: 8080
 server:

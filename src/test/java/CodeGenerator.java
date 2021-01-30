@@ -7,28 +7,56 @@ import com.baomidou.mybatisplus.generator.config.po.TableInfo;
 import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
 import com.baomidou.mybatisplus.generator.engine.FreemarkerTemplateEngine;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 
 import java.util.*;
 
+@Component
 final class MyConfig{
+    //表名
+    public static final String[] TABLES={
+    };
     public static final boolean MAKE_CONTROLLER=true;
     public static final boolean MAKE_SERVICE=true;
     public static final boolean MAKE_MAPPER=true;
     public static final boolean MAKE_ENTITY=true;
     public static final boolean FILEOVERRIDE=true;
-    //
-    public static final String author="TianHao";
-    //表名
-    public static final String[] TABLES={
-    };
-    public static final String dbUrl="jdbc:mysql://localhost:3300/housemanager?useUnicode=true&useSSL=false&characterEncoding=utf8";
+    public static String author;
+    public static String username;
+    public static String password;
+    public static String driver;
+    public static String url;
+
+    @Value("${app-info.author}")
+    public void setAuthor(String author) {
+        MyConfig.author = author;
+    }
+    @Value("${spring.datasource.username}")
+    public static void setUsername(String username) {
+        MyConfig.username = username;
+    }
+
+    @Value("${spring.datasource.password}")
+    public static void setPassword(String password) {
+        MyConfig.password = password;
+    }
+
+    @Value("${spring.datasource.driver}")
+    public static void setDriver(String driver) {
+        MyConfig.driver = driver;
+    }
+
+    @Value("${spring.datasource.url}")
+    public static void setUrl(String url) {
+        MyConfig.url = url;
+    }
+
+    public static final String dbUrl=url+"?useUnicode=true&useSSL=false&characterEncoding=utf8";
 }
-
-
 
 // 演示例子，执行 main 方法控制台输入模块表名回车自动生成对应项目目录中
 public class CodeGenerator {
-
 
     public static void main(String[] args) {
         // 代码生成器
@@ -49,9 +77,9 @@ public class CodeGenerator {
         DataSourceConfig dsc = new DataSourceConfig();
         dsc.setUrl(MyConfig.dbUrl);
         // dsc.setSchemaName("public");
-        dsc.setDriverName("com.mysql.jdbc.Driver");
-        dsc.setUsername("root");
-        dsc.setPassword("4869");
+        dsc.setDriverName(MyConfig.driver);
+        dsc.setUsername(MyConfig.username);
+        dsc.setPassword(MyConfig.password);
         mpg.setDataSource(dsc);
         // 包配置
         PackageConfig pc = new PackageConfig();

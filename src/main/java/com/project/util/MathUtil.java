@@ -99,10 +99,10 @@ public class MathUtil {
 
     //非整除则进位 by tony 20111006
     public int round(int i1, int i2) {
-        int modi = 0;
-        modi = i1 % i2;
+        int a;
+        a = i1 % i2;
         int i = i1 / i2;
-        if (modi == 0) {
+        if (a == 0) {
             return i;
         } else {
             return i + 1;
@@ -111,9 +111,7 @@ public class MathUtil {
 
     //使用时一定要注意其大小，不可超出范围
     public int pow(int i1, int i2) {
-        double d1 = (double) i1;
-        double d2 = (double) i2;
-        return (int) java.lang.Math.pow(d1, d2);
+        return (int) java.lang.Math.pow(i1, i2);
     }
 
     //对给定数目的自0开始步长为1的数字序列进行乱序
@@ -129,7 +127,6 @@ public class MathUtil {
             sequence[i] = sequence[p];
             sequence[p] = tmp;
         }
-        random = null;
         return sequence;
     }
 }

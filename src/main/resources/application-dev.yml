@@ -13,6 +13,13 @@ spring:
     port: 6379
     password: ""
     timeout: 1000
+    block-when-exhausted: false
+    jedis:
+      pool:
+        max-idle: 8
+        min-idle: 0
+        max-active: 8
+        max-wait: -1
   session:
     store-type: none
 shiro:
