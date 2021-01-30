@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.alibaba.fastjson.support.config.FastJsonConfig;
 import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;
+import com.project.common.BaseController;
 import com.project.common.Result;
 import com.project.common.ResultCode;
 import org.apache.commons.codec.digest.DigestUtils;

@@ -1,5 +1,6 @@
 package com.project.common;
 
+import com.project.util.EncodeUtil;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.UnknownAccountException;
@@ -11,7 +12,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class Auth {
     public String login(String id, String password) {
-        UsernamePasswordToken token = new UsernamePasswordToken(id, password);
+        UsernamePasswordToken token = new UsernamePasswordToken(id, EncodeUtil.encode(password));
         Subject subject = SecurityUtils.getSubject();
         try {
             //进行验证，这里可以捕获异常，然后返回对应信息
@@ -26,5 +27,9 @@ public class Auth {
             return Constants.ACCOUNT_AUTH_ERROR;
         }
         return null;
+    }
+    public void logout(){
+        Subject subject = SecurityUtils.getSubject();
+        subject.logout();
     }
 }

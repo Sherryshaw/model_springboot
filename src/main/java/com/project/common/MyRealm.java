@@ -1,6 +1,7 @@
 package com.project.common;
 
 import com.project.entity.Account;
+import com.project.util.EncodeUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.*;
@@ -44,7 +45,8 @@ public class MyRealm extends AuthorizingRealm {
         //test
         Account account = new Account();
         account.setUsername(token.getUsername());
-        account.setPassword("1");
+        String salt=EncodeUtil.getSalt();
+        account.setPassword(EncodeUtil.encode("1",salt));
         account.setPerms("w,r");
         account.setRole("admin");
         return new SimpleAuthenticationInfo(account, account.getPassword(), getName());

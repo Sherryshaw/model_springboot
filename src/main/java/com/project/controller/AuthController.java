@@ -42,4 +42,11 @@ public class AuthController extends BaseController {
         mailService.sendSimpleMail(to,title,content);
         return ResultGenerator.genSuccessResult();
     }
+
+    @RequiresRoles("admin")
+    @GetMapping("/logout")
+    public Result logout(){
+        auth.logout();
+        return ResultGenerator.genSuccessResult();
+    }
 }

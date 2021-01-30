@@ -11,7 +11,6 @@ import org.springframework.web.servlet.NoHandlerFoundException;
 @RestControllerAdvice
 @Slf4j
 public class GlobalExceptionHandler {
-
     @ExceptionHandler(AuthorizationException.class)
     @ResponseBody
     public Result AuthorizationHandler() {
