@@ -6,6 +6,7 @@ import com.project.common.ResultGenerator;
 import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -14,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/auth")
 public class AuthController extends BaseController {
 
-    @GetMapping("/login")
+    @PostMapping("/login")
     public Result login(String username, String password) {
         String result = auth.login(username, password);
         if (result == null) {
